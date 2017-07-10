@@ -62,6 +62,20 @@ describe GildedRose do
       expect(items[0].quality).to eq 24
       expect(items[0].sell_in).to eq -1
     end
+
+    it "quality will never increase above 50" do
+      items = [Item.new("Aged Brie", 0, 50)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 50
+      expect(items[0].sell_in).to eq -1
+    end
+
+    it "quality will never increase above 50" do
+      items = [Item.new("Aged Brie", 5, 50)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 50
+      expect(items[0].sell_in).to eq 4
+    end
   end
 
   describe "Backstage passes to a TAFKAL80ETC concert" do
