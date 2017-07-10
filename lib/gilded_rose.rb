@@ -72,9 +72,8 @@ class GildedRose
     @items[0].sell_in -= 1
     return if @items[0].quality == 50
     if @items[0].sell_in > 0
-      @items[0].quality += 1
-      @items[0].quality += 2 if @items[0].sell_in.between?(1, 5) && @items[0].sell_in > 0
-      @items[0].quality += 1 if @items[0].sell_in.between?(6, 10) && @items[0].sell_in > 0
+      @items[0].quality += 3 if @items[0].sell_in.between?(1, 5) && @items[0].sell_in > 0
+      @items[0].quality += 2 if @items[0].sell_in.between?(6, 10) && @items[0].sell_in > 0
     else
       @items[0].quality = 0
     end
