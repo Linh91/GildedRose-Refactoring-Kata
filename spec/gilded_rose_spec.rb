@@ -36,9 +36,10 @@ describe GildedRose do
   end
 
   describe "Aged Brie" do
-    it "will decrease in sell_in" do
+    it "will decrease in sell_in but increase in quality" do
       items = [Item.new("Aged Brie", 10, 10)]
       GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 11
       expect(items[0].sell_in).to eq 9
     end
 
@@ -160,6 +161,4 @@ describe GildedRose do
       expect(items[0].sell_in).to eq 21
     end
   end
-
-
 end
