@@ -8,6 +8,8 @@ class GildedRose
     @items.each do |item|
       if item.name = "Aged Brie"
         return aged_brie_update
+      elsif item.name = "Sulfuras, Hand of Ragnaros"
+        return sulfuras_update
       end
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
@@ -59,6 +61,9 @@ class GildedRose
     return if @items[0].quality == 50
     @items[0].quality += 1
     @items[0].quality += 1 if @items[0].sell_in <= 0
+  end
+
+  def sulfuras_update
   end
 end
 
