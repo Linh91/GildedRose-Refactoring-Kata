@@ -72,9 +72,21 @@ describe GildedRose do
     end
 
     it "when sell_in is 5 or less, quality will increase by 3" do
-      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 3, 10)]
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 3, 15)]
       GildedRose.new(items).update_quality()
-      expect(items[0].quality).to eq 13
+      expect(items[0].quality).to eq 18
+    end
+
+    it "when sell_in is 10 or less, quality will increase by 2" do
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 10, 9)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 11
+    end
+
+    it "when sell_in is 10 or less, quality will increase by 2" do
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 8, 19)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 21
     end
   end
 
