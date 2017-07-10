@@ -69,7 +69,7 @@ class GildedRose
   end
 
   def backstage_update
-    if @items[0].quality != 50
+    if @items[0].quality < 50
       if @items[0].sell_in <= 10 && @items[0].sell_in > 5
         @items[0].sell_in -= 1
         @items[0].quality += 2
@@ -80,9 +80,9 @@ class GildedRose
         @items[0].sell_in -= 1
         @items[0].quality = 0
       end
+    else
       @items[0].sell_in -= 1
     end
-
   end
 end
 
