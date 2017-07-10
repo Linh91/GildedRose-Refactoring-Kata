@@ -54,17 +54,11 @@ class GildedRose
       end
     end
   end
-
   def aged_brie_update
-    if @items[0].sell_in > 0 && @items[0].quality < 50      # if @items[0].quality < 50
-        @items[0].sell_in -= 1
-        @items[0].quality += 1
-    elsif @items[0].quality == 50
-      @items[0].sell_in -= 1
-    else
-      @items[0].quality += 2
-      @items[0].sell_in -= 1
-    end
+    @items[0].sell_in -= 1
+    return if @items[0].quality == 50
+    @items[0].quality += 1
+    @items[0].quality += 1 if @items[0].sell_in <= 0
   end
 end
 
