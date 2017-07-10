@@ -124,7 +124,7 @@ describe GildedRose do
       expect(items[0].sell_in).to eq -1
     end
 
-    it "when sell_in is 0, quality will become 0" do
+    it "quality is never negative" do
       items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 0, 33)]
       GildedRose.new(items).update_quality()
       expect(items[0].quality).to eq 0
