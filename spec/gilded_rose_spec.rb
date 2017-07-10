@@ -104,4 +104,19 @@ describe GildedRose do
     end
   end
 
+  describe "Sulfuras, Hand of Ragnaros" do
+    it "it is a legacy item; quality and sell_in never changes" do
+      items = [Item.new("Sulfuras, Hand of Ragnaros", 10, 33)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 33
+    end
+
+    it "sell_in and quality will not change" do
+      items = [Item.new("Sulfuras, Hand of Ragnaros", 21, 36)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 36
+      expect(items[0].sell_in).to eq 21
+    end
+  end
+
 end
