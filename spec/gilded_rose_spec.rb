@@ -116,6 +116,20 @@ describe GildedRose do
       expect(items[0].quality).to eq 0
       expect(items[0].sell_in).to eq -1
     end
+
+    it "quality will not increase over 50" do
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 50)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 50
+      expect(items[0].sell_in).to eq 4
+    end
+
+    it "quality will not increase above 50" do
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 22, 50)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 50
+      expect(items[0].sell_in).to eq 21
+    end
   end
 
   describe "Sulfuras, Hand of Ragnaros" do
