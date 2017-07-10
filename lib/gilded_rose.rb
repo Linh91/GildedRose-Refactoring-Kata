@@ -69,21 +69,17 @@ class GildedRose
   end
 
   def backstage_update
-    if @items[0].quality < 50
-      if @items[0].sell_in <= 10 && @items[0].sell_in > 5
-        @items[0].sell_in -= 1
-        @items[0].quality += 2
-      elsif @items[0].sell_in <= 5 && @items[0].sell_in > 0
-        @items[0].sell_in -= 1
-        @items[0].quality += 3
-      else
-        @items[0].sell_in -= 1
-        @items[0].quality = 0
-      end
+    @items[0].sell_in -= 1
+    return if @items[0].quality == 50
+    if @items[0].sell_in > 0
+      @items[0].quality += 1
+      @items[0].quality += 2 if @items[0].sell_in.between?(1, 5) && @items[0].sell_in > 0
+      @items[0].quality += 1 if @items[0].sell_in.between?(6, 10) && @items[0].sell_in > 0
     else
-      @items[0].sell_in -= 1
+      @items[0].quality = 0
     end
   end
+
 end
 
 class Item
