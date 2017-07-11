@@ -168,4 +168,21 @@ describe GildedRose do
       expect(items[0].sell_in).to eq 21
     end
   end
+
+  describe "Conjured items" do
+    it "quality will degrade twice as fast than normal items" do
+      items = [Item.new("Conjured", 21, 36)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 34
+      expect(items[0].sell_in).to eq 19
+    end
+
+    it "sell_in will degrade twice as fast than normal items" do
+      items = [Item.new("Conjured", 17, 8)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 6
+      expect(items[0].sell_in).to eq 15
+    end
+  end
+
 end
