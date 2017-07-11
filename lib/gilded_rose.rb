@@ -13,10 +13,18 @@ class GildedRose
       elsif item.name == "Backstage passes to a TAFKAL80ETC concert"
         return backstage_pass_update
       elsif item.name == "Conjured"
-        return conjured_update
+        return conjured_item_update
       else
         return normal_item_update
       end
+    end
+  end
+
+  def conjured_item_update
+    @items[0].sell_in -= 2
+    if @items[0].quality != 0
+      @items[0].quality -= 2
+      @items[0].quality -= 2 if @items[0].sell_in <= 0
     end
   end
 

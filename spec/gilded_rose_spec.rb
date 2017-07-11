@@ -183,6 +183,13 @@ describe GildedRose do
       expect(items[0].quality).to eq 6
       expect(items[0].sell_in).to eq 15
     end
+
+    it "quality will degrades by 4 when sell_in is 0" do
+      items = [Item.new("Conjured", 0, 8)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 4
+      expect(items[0].sell_in).to eq -2
+    end
   end
 
 end
