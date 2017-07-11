@@ -1,7 +1,7 @@
 require './lib/gilded_rose'
 
 describe GildedRose do
-  describe "#update_quality" do
+  describe "#update_quality - normal items" do
     it "does not change the item name" do
       items = [Item.new("foo", 0, 0)]
       GildedRose.new(items).update_quality()

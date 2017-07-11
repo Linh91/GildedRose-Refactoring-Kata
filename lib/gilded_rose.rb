@@ -35,6 +35,7 @@ class GildedRose
       @items[0].quality -= 1 if @items[0].sell_in <= 0
     end
   end
+
   def aged_brie_update
     @items[0].sell_in -= 1
     return if @items[0].quality == 50
