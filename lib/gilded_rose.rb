@@ -63,7 +63,7 @@ class GildedRose
 
   def normal_item_update
     @items[0].sell_in -= 1
-    @items[0].quality += 1
+    @items[0].quality -= 1
   end
   def aged_brie_update
     @items[0].sell_in -= 1
