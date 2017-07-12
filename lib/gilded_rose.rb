@@ -19,7 +19,8 @@ class GildedRose
         @items[0] = Sulfuras.new(@items[0].name, @items[0].quality, @items[0].sell_in)
         @items[0].item_update
       elsif item.name == "Backstage passes to a TAFKAL80ETC concert"
-        return backstage_pass_update
+        @items[0] = BackstagePass.new(@items[0].name, @items[0].quality, @items[0].sell_in)
+        @items[0].item_update
       elsif item.name == "Conjured"
         @items[0] = Conjured.new(@items[0].name, @items[0].quality, @items[0].sell_in)
         @items[0].item_update
@@ -30,10 +31,10 @@ class GildedRose
     end
   end
 
-  def backstage_pass_update
-    @items[0] = BackstagePass.new(@items[0].name, @items[0].quality, @items[0].sell_in)
-    @items[0].item_update
-  end
+  # def backstage_pass_update
+  #   @items[0] = BackstagePass.new(@items[0].name, @items[0].quality, @items[0].sell_in)
+  #   @items[0].item_update
+  # end
 
 end
 
