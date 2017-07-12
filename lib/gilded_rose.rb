@@ -2,6 +2,7 @@ require './lib/normal'
 require './lib/aged_brie'
 require './lib/conjured'
 require './lib/backstage_pass'
+require './lib/Sulfuras'
 
 class GildedRose
 
@@ -41,6 +42,8 @@ class GildedRose
   end
 
   def sulfuras_update
+    @items[0] = Sulfuras.new(@items[0].name, @items[0].quality, @items[0].sell_in)
+    @items[0].item_update
   end
 
   def backstage_pass_update
