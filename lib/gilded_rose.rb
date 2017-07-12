@@ -13,7 +13,8 @@ class GildedRose
   def update_quality()
     @items.each do |item|
       if item.name == "Aged Brie"
-        return aged_brie_update
+        @items[0] = AgedBrie.new(@items[0].name, @items[0].quality, @items[0].sell_in)
+        @items[0].item_update
       elsif item.name == "Sulfuras, Hand of Ragnaros"
         return sulfuras_update
       elsif item.name == "Backstage passes to a TAFKAL80ETC concert"
@@ -27,16 +28,11 @@ class GildedRose
       end
     end
   end
-  #
-  # def normal_item_update
-  #   @items[0] = Normal.new(@items[0].name, @items[0].quality, @items[0].sell_in)
+
+  # def aged_brie_update
+  #   @items[0] = AgedBrie.new(@items[0].name, @items[0].quality, @items[0].sell_in)
   #   @items[0].item_update
   # end
-
-  def aged_brie_update
-    @items[0] = AgedBrie.new(@items[0].name, @items[0].quality, @items[0].sell_in)
-    @items[0].item_update
-  end
 
   def sulfuras_update
     @items[0] = Sulfuras.new(@items[0].name, @items[0].quality, @items[0].sell_in)
