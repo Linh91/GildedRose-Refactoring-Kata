@@ -1,4 +1,5 @@
 require './lib/normal'
+require './lib/aged_brie'
 
 class GildedRose
 
@@ -36,10 +37,8 @@ class GildedRose
   end
 
   def aged_brie_update
-    @items[0].sell_in -= 1
-    return if @items[0].quality == 50
-    @items[0].quality += 1
-    @items[0].quality += 1 if @items[0].sell_in <= 0
+    @items[0] = AgedBrie.new(@items[0].name, @items[0].quality, @items[0].sell_in)
+    @items[0].item_update
   end
 
   def sulfuras_update
