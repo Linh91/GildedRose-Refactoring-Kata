@@ -22,20 +22,16 @@ class GildedRose
         @items[0] = Conjured.new(@items[0].name, @items[0].quality, @items[0].sell_in)
         @items[0].item_update
       else
-        return normal_item_update
+        @items[0] = Normal.new(@items[0].name, @items[0].quality, @items[0].sell_in)
+        @items[0].item_update
       end
     end
   end
-
-  def conjured_item_update
-    @items[0] = Conjured.new(@items[0].name, @items[0].quality, @items[0].sell_in)
-    @items[0].item_update
-  end
-
-  def normal_item_update
-    @items[0] = Normal.new(@items[0].name, @items[0].quality, @items[0].sell_in)
-    @items[0].item_update
-  end
+  #
+  # def normal_item_update
+  #   @items[0] = Normal.new(@items[0].name, @items[0].quality, @items[0].sell_in)
+  #   @items[0].item_update
+  # end
 
   def aged_brie_update
     @items[0] = AgedBrie.new(@items[0].name, @items[0].quality, @items[0].sell_in)
