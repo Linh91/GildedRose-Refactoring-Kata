@@ -33,11 +33,6 @@ class GildedRose
   def normal_item_update
     @items[0] = Normal.new(@items[0].name, @items[0].quality, @items[0].sell_in)
     @items[0].item_update
-    # @items[0].sell_in -= 1
-    # if @items[0].quality != 0
-    #   @items[0].quality -= 1
-    #   @items[0].quality -= 1 if @items[0].sell_in <= 0
-    # end
   end
 
   def aged_brie_update
