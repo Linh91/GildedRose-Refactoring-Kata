@@ -1,5 +1,7 @@
 require './lib/normal'
 require './lib/aged_brie'
+require './lib/conjured'
+require './lib/backstage_pass'
 
 class GildedRose
 
@@ -24,11 +26,8 @@ class GildedRose
   end
 
   def conjured_item_update
-    @items[0].sell_in -= 2
-    if @items[0].quality != 0
-      @items[0].quality -= 2
-      @items[0].quality -= 2 if @items[0].sell_in <= 0
-    end
+    @items[0] = Conjured.new(@items[0].name, @items[0].quality, @items[0].sell_in)
+    @items[0].item_update
   end
 
   def normal_item_update
@@ -45,15 +44,8 @@ class GildedRose
   end
 
   def backstage_pass_update
-    @items[0].sell_in -= 1
-    return if @items[0].quality == 50
-    if @items[0].sell_in > 0
-      @items[0].quality += 1
-      @items[0].quality += 1 if @items[0].sell_in.between?(6, 10)
-      @items[0].quality += 2 if @items[0].sell_in.between?(1, 5)
-    else
-      @items[0].quality = 0
-    end
+    @items[0] = BackstagePass.new(@items[0].name, @items[0].quality, @items[0].sell_in)
+    @items[0].item_update
   end
 
 end
