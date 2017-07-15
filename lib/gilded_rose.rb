@@ -18,9 +18,7 @@ class GildedRose
   def update_quality()
     @items.each do |item|
       updated_product = (PRODUCTS[item.name] || Normal).new
-      # (item.name, item.quality, item.sell_in)
       updated_product.item_update(item)
-      # p updated_product
     end
   end
 end
