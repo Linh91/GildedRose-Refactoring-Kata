@@ -1,4 +1,4 @@
-require './lib/normal'
+require './lib/other_items'
 require './lib/aged_brie'
 require './lib/conjured'
 require './lib/backstage_pass'
@@ -17,7 +17,7 @@ class GildedRose
 
   def update_quality()
     @items.each do |item|
-      updated_product = (PRODUCTS[item.name] || Normal).new
+      updated_product = (PRODUCTS[item.name] || Other).new
       updated_product.item_update(item)
     end
   end

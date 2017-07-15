@@ -1,4 +1,4 @@
-class Normal
+class Other
   def item_update(item)
     item.sell_in -= 1
     if item.quality != 0
