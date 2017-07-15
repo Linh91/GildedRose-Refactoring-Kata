@@ -30,12 +30,6 @@ class GildedRose
       end
     end
   end
-
-  # def backstage_pass_update
-  #   @items[0] = BackstagePass.new(@items[0].name, @items[0].quality, @items[0].sell_in)
-  #   @items[0].item_update
-  # end
-
 end
 
 class Item
