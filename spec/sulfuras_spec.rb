@@ -2,7 +2,7 @@ require './lib/gilded_rose'
 
 describe Sulfuras do
   describe "Sulfuras, Hand of Ragnaros" do
-    it "returns a string" do
+    it "will returns a string" do
       sulfuras = [Item.new("Sulfuras, Hand of Ragnaros", 30, 25)]
       expect(sulfuras[0].to_s).to eq "Sulfuras, Hand of Ragnaros, 30, 25"
     end

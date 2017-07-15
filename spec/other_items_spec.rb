@@ -1,7 +1,7 @@
 require './lib/gilded_rose'
 describe Other do
   describe "Other items" do
-    it "returns a string" do
+    it "will returns a string" do
       other_items = [Item.new("Pies", 33, 16)]
       expect(other_items[0].to_s).to eq "Pies, 33, 16"
     end

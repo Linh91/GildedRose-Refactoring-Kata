@@ -2,7 +2,7 @@ require './lib/gilded_rose'
 
 describe Conjured do
   describe "Conjured items" do
-    it "returns a string" do
+    it "will returns a string" do
       conjured_item = [Item.new("Conjured", 19, 11)]
       expect(conjured_item[0].to_s).to eq "Conjured, 19, 11"
     end
