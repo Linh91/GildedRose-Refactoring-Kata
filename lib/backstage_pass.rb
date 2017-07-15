@@ -1,19 +1,13 @@
 class BackstagePass
-  attr_reader :quality, :sell_in, :name
-
-  def initialize(name, quality, sell_in)
-    @name, @quality, @sell_in = name, quality, sell_in
-  end
-
-  def item_update
-    @sell_in -= 1
-    return if @quality == 50
-    if @sell_in > 0
-      @quality += 1
-      @quality += 1 if @sell_in.between?(6, 10)
-      @quality += 2 if @sell_in.between?(1, 5)
+  def item_update(item)
+    item.sell_in -= 1
+    return if item.quality == 50
+    if item.sell_in > 0
+      item.quality += 1
+      item.quality += 1 if item.sell_in.between?(6, 10)
+      item.quality += 2 if item.sell_in.between?(1, 5)
     else
-      @quality = 0
+      item.quality = 0
     end
   end
 end
