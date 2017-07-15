@@ -7,7 +7,7 @@ require './lib/Sulfuras'
 class GildedRose
 
   PRODUCTS = {'Aged Brie' => AgedBrie,
-              'Sulfuras, Hands of Ragnaros' => Sulfuras,
+              'Sulfuras, Hand of Ragnaros' => Sulfuras,
               'Backstage passes to a TAFKAL80ETC concert' => BackstagePass,
               'Conjured'=> Conjured}
 
