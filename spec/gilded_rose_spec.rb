@@ -5,6 +5,12 @@ describe GildedRose do
     it "sell_in" do
       items = [Item.new("foo", 3, 4)]
       GildedRose.new(items).update_quality()
+      expect(items[0].name).to eq 'foo'
+    end
+
+    it "sell_in" do
+      items = [Item.new("foo", 3, 4)]
+      GildedRose.new(items).update_quality()
       expect(items[0].sell_in).to eq 2
       expect(items[0].quality).to eq 3
     end
