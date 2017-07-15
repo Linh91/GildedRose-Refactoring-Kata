@@ -2,11 +2,18 @@ require './lib/gilded_rose'
 
 describe AgedBrie do
   describe "Aged Brie" do
-    it "will returns a string" do
+    it "will return a string" do
       aged_brie = [Item.new("Aged Brie", 10, 10)]
       expect(aged_brie[0].to_s).to eq "Aged Brie, 10, 10"
     end
 
+    it "sell_in will decrease" do
+      aged_brie = [Item.new("Aged Brie", 23, 13)]
+      GildedRose.new(aged_brie).update_quality()
+      expect(aged_brie[0].quality).to eq 14
+      expect(aged_brie[0].sell_in).to eq 22
+    end
+    
     it "will decrease in sell_in but increase in quality" do
       aged_brie = [Item.new("Aged Brie", 10, 10)]
       GildedRose.new(aged_brie).update_quality()
@@ -21,12 +28,6 @@ describe AgedBrie do
       expect(aged_brie[0].sell_in).to eq 9
     end
 
-    it "sell_in will decrease" do
-      aged_brie = [Item.new("Aged Brie", 23, 13)]
-      GildedRose.new(aged_brie).update_quality()
-      expect(aged_brie[0].quality).to eq 14
-      expect(aged_brie[0].sell_in).to eq 22
-    end
 
     it "quality above 50 will not change but sell_in still decreases by 1" do
       aged_brie = [Item.new("Aged Brie", 10, 50)]
