@@ -4,35 +4,35 @@ describe GildedRose do
   describe "#update_quality - normal items" do
     it "sell_in" do
       items = [Item.new("foo", 3, 4)]
-      guildedrose = GildedRose.new(items).update_quality()
-      expect(guildedrose.sell_in).to eq 2
-      expect(guildedrose.quality).to eq 3
+      GildedRose.new(items).update_quality()
+      expect(items[0].sell_in).to eq 2
+      expect(items[0].quality).to eq 3
     end
 
     it "will decrease sell_in by 1" do
       items = [Item.new("foo", 0, 0)]
-      guildedrose = GildedRose.new(items).update_quality()
-      expect(guildedrose.sell_in).to eq -1
+      GildedRose.new(items).update_quality()
+      expect(items[0].sell_in).to eq -1
     end
 
     it "will decrease quality by 1" do
       items = [Item.new("Apple", 3, 2)]
-      guildedrose = GildedRose.new(items).update_quality()
-      expect(guildedrose.quality).to eq 1
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 1
     end
 
     it "when item sell_in date has passed, quality reduces twice as fast" do
       items = [Item.new("foo", 0, 10)]
-      guildedrose = GildedRose.new(items).update_quality()
-      expect(guildedrose.quality).to eq 8
-      expect(guildedrose.sell_in).to eq -1
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 8
+      expect(items[0].sell_in).to eq -1
     end
 
     it "item quality is never negative" do
       items = [Item.new("foo", 2, 0)]
-      guildedrose = GildedRose.new(items).update_quality()
-      expect(guildedrose.quality).to eq 0
-      expect(guildedrose.sell_in).to eq 1
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 0
+      expect(items[0].sell_in).to eq 1
     end
   end
 
