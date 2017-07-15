@@ -1,15 +1,15 @@
 class Normal
-  attr_reader :quality, :sell_in, :name
+  # attr_reader :quality, :sell_in, :name
+  #
+  # def initialize(name, quality, sell_in)
+  #   @name, @quality, @sell_in = name, quality, sell_in
+  # end
 
-  def initialize(name, quality, sell_in)
-    @name, @quality, @sell_in = name, quality, sell_in
-  end
-
-  def item_update
-    @sell_in -= 1
-    if @quality != 0
-      @quality -= 1
-      @quality -= 1 if @sell_in <= 0
+  def item_update(item)
+    item.sell_in -= 1
+    if item.quality != 0
+      item.quality -= 1
+      item.quality -= 1 if item.sell_in <= 0
     end
   end
 end
