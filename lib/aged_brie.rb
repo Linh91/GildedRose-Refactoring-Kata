@@ -1,10 +1,4 @@
 class AgedBrie
-  # attr_reader :quality, :sell_in, :name
-  #
-  # def initialize(name, quality, sell_in)
-  #   @name, @quality, @sell_in = name, quality, sell_in
-  # end
-  #
   def item_update(item)
     item.sell_in -= 1
     return if item.quality >= 50
